@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "lMW66HGb3ZSdcPyEfJq5ZLc1X9Qt01SsvyfZg1R/SZM=",
+  "Source": "FluentMigratorTask",
+  "BasePath": "_content/FluentMigratorTask",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

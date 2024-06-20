@@ -1,0 +1,1 @@
+DROP PROC SP_GetAllUsers
