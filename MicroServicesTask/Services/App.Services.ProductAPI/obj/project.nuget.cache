@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yManGSPxB/iLO4PlpeNwdl7fJkE+kvFItwWvbKb3QwLVpgx63NnLsRFgvt+QEluNWjGVvC0nuEnUr8dLFS6Biw==",
+  "dgSpecHash": "TOpyOX3GzmCVj5vRgzkwaxCvWY5CN7dn/GgiYf2J/zs3mg2e2c29xr+5jMhK3B8xQt5o1py2hWgrdFQXDfNq3g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.ProductAPI\\App.Services.ProductAPI.csproj",
+  "projectFilePath": "C:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.ProductAPI\\App.Services.ProductAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bharath.mokara\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\bharath.mokara\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

@@ -11,6 +11,7 @@ namespace App.Services.ProductApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly ApplicationDbContext _applicationDbContext;

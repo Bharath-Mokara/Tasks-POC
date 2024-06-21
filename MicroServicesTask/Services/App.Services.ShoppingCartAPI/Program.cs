@@ -3,6 +3,7 @@ using App.Services.ShoppingCartApi;
 using App.Services.ShoppingCartApi.Data;
 using App.Services.ShoppingCartApi.ServiceContracts;
 using App.Services.ShoppingCartApi.Services;
+using App.Services.ShoppingCartApi.Utility;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => {
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICouponService, CouponService>();
 
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<AuthorizationHeaderDelegatingHandler>();
+
 
 //Adding Automapper service to the service container
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
@@ -29,11 +33,11 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddHttpClient("ProductClient", client =>{
     client.BaseAddress = new Uri(builder.Configuration.GetSection("ServiceUrls").GetValue<string>("ProductAPI"));
-});
+}).AddHttpMessageHandler<AuthorizationHeaderDelegatingHandler>();
 
 builder.Services.AddHttpClient("CouponClient", client =>{
     client.BaseAddress = new Uri(builder.Configuration.GetSection("ServiceUrls").GetValue<string>("CouponAPI"));
-});
+}).AddHttpMessageHandler<AuthorizationHeaderDelegatingHandler>();
 
 //Adding Authentication Service
 builder.Services.AddAuthentication(options => {

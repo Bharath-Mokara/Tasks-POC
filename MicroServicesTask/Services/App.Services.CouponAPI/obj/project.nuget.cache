@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OqaUn0fuUFGehqz5NN0FzLYig6BguEOra7vwx0VCHhz4pG31S3lBJcU/vr0lh743vNLHKTMyq1ON1ZDxVCShCw==",
+  "dgSpecHash": "XJXFyevNINdWTMJqi5sJ29w1KcXrah+h0ZL0qec6/W9pfXjqKuxylEktP9V/keOHd2xXp8BDxtRyAJJ9/GbnrA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.CouponAPI\\App.Services.CouponAPI.csproj",
+  "projectFilePath": "C:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.CouponAPI\\App.Services.CouponAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bharath.mokara\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\bharath.mokara\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

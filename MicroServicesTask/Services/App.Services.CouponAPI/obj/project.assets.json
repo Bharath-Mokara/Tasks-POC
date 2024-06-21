@@ -4312,11 +4312,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.CouponAPI\\App.Services.CouponAPI.csproj",
+      "projectUniqueName": "c:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.CouponAPI\\App.Services.CouponAPI.csproj",
       "projectName": "App.Services.CouponAPI",
-      "projectPath": "c:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.CouponAPI\\App.Services.CouponAPI.csproj",
+      "projectPath": "c:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.CouponAPI\\App.Services.CouponAPI.csproj",
       "packagesPath": "C:\\Users\\bharath.mokara\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.CouponAPI\\obj\\",
+      "outputPath": "c:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.CouponAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bharath.mokara\\AppData\\Roaming\\NuGet\\NuGet.Config"

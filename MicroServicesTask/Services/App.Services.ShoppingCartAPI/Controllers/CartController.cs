@@ -37,9 +37,21 @@ namespace App.Services.ShoppingCartApi.Controllers
                     CartHeader = _mapper.Map<CartHeaderDto>(
                         _applicationDbContext.CartHeaders.FirstOrDefault(cartHeader => cartHeader.UserId == userId)
                     )
+
                 };
+
+                //checking if cartHeader exists or not 
+                //If cartHeader dosent exist it will initialize with null cartDetail object.
+
+                if(cart.CartHeader == null){
+                    _response.Result = cart;
+                    _response.IsSuccess = true;
+                    _response.Message = "User cart fetched";
+
+                    return _response;
+                }
  
-                cart.CartDetails = _mapper.Map<IEnumerable<CartDetailsDto>>(
+                cart.CartDetails =  _mapper.Map<IEnumerable<CartDetailsDto>>(
                     _applicationDbContext.CartDetails.Where(cartDetail => cartDetail.CartHeaderId == cart.CartHeader.CartHeaderId)
                 );
 

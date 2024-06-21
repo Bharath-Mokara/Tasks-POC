@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lsLzhlW8YBa5AdNC4jJJKuXan8lv86JMKM4jfPh9vLOqpne/II09eEvcdeDek9BSRlZzq0yYuIMo+cf3Kz+6GQ==",
+  "dgSpecHash": "b4kWt+Tgp/OZrbPukjiloKKPVKBLfYRkoYJRtejhKTNJei4OMwnpP2afEapfZA87udD64yrFqyUZSjYuPRuBmg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.ShoppingCartAPI\\App.Services.ShoppingCartAPI.csproj",
+  "projectFilePath": "C:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.ShoppingCartAPI\\App.Services.ShoppingCartAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bharath.mokara\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\bharath.mokara\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

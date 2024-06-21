@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.ProductAPI\\App.Services.ProductAPI.csproj": {}
+    "C:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.ProductAPI\\App.Services.ProductAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.ProductAPI\\App.Services.ProductAPI.csproj": {
+    "C:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.ProductAPI\\App.Services.ProductAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.ProductAPI\\App.Services.ProductAPI.csproj",
+        "projectUniqueName": "C:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.ProductAPI\\App.Services.ProductAPI.csproj",
         "projectName": "App.Services.ProductAPI",
-        "projectPath": "C:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.ProductAPI\\App.Services.ProductAPI.csproj",
+        "projectPath": "C:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.ProductAPI\\App.Services.ProductAPI.csproj",
         "packagesPath": "C:\\Users\\bharath.mokara\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.ProductAPI\\obj\\",
+        "outputPath": "C:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.ProductAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bharath.mokara\\AppData\\Roaming\\NuGet\\NuGet.Config"

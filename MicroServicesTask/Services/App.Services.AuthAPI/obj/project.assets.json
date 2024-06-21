@@ -4486,11 +4486,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.AuthAPI\\App.Services.AuthAPI.csproj",
+      "projectUniqueName": "c:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.AuthAPI\\App.Services.AuthAPI.csproj",
       "projectName": "App.Services.AuthAPI",
-      "projectPath": "c:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.AuthAPI\\App.Services.AuthAPI.csproj",
+      "projectPath": "c:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.AuthAPI\\App.Services.AuthAPI.csproj",
       "packagesPath": "C:\\Users\\bharath.mokara\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\bharath.mokara\\Desktop\\KPMG_Tasks\\MicroServicesTask\\Services\\App.Services.AuthAPI\\obj\\",
+      "outputPath": "c:\\Users\\bharath.mokara\\Desktop\\POC's\\MicroServicesTask\\Services\\App.Services.AuthAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bharath.mokara\\AppData\\Roaming\\NuGet\\NuGet.Config"
