@@ -1,0 +1,6 @@
+@BeaconTaskAPI_HostAddress = http://localhost:5140
+
+GET {{BeaconTaskAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

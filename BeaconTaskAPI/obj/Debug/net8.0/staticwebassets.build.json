@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "I/LSK6k1nKOxOOfoMIHDloMFv0pZkHCy5GzFK2FmuMo=",
+  "Source": "BeaconTaskAPI",
+  "BasePath": "_content/BeaconTaskAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
