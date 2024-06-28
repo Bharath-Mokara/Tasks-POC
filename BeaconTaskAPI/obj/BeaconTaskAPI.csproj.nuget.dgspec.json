@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\bharath.mokara\\Desktop\\POC's\\BeaconTaskAPI\\BeaconTaskAPI.csproj": {}
+    "C:\\Users\\bharath.mokara\\Desktop\\POC's\\BeaconTaskAPI\\BeaconTaskAPI.csproj": {}
   },
   "projects": {
-    "c:\\Users\\bharath.mokara\\Desktop\\POC's\\BeaconTaskAPI\\BeaconTaskAPI.csproj": {
+    "C:\\Users\\bharath.mokara\\Desktop\\POC's\\BeaconTaskAPI\\BeaconTaskAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\bharath.mokara\\Desktop\\POC's\\BeaconTaskAPI\\BeaconTaskAPI.csproj",
+        "projectUniqueName": "C:\\Users\\bharath.mokara\\Desktop\\POC's\\BeaconTaskAPI\\BeaconTaskAPI.csproj",
         "projectName": "BeaconTaskAPI",
-        "projectPath": "c:\\Users\\bharath.mokara\\Desktop\\POC's\\BeaconTaskAPI\\BeaconTaskAPI.csproj",
+        "projectPath": "C:\\Users\\bharath.mokara\\Desktop\\POC's\\BeaconTaskAPI\\BeaconTaskAPI.csproj",
         "packagesPath": "C:\\Users\\bharath.mokara\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\bharath.mokara\\Desktop\\POC's\\BeaconTaskAPI\\obj\\",
+        "outputPath": "C:\\Users\\bharath.mokara\\Desktop\\POC's\\BeaconTaskAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bharath.mokara\\AppData\\Roaming\\NuGet\\NuGet.Config"

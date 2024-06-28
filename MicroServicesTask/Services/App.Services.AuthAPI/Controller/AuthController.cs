@@ -1,5 +1,6 @@
 using App.Services.AuthApi.Entites.DTO;
 using App.Services.AuthApi.ServiceContracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Services.AuthApi.Controller
@@ -51,6 +52,8 @@ namespace App.Services.AuthApi.Controller
             _response.IsSuccess = true;
             _response.Result = loginResponse;
 
+            
+
             return Ok(_response);
         }
 
@@ -71,6 +74,28 @@ namespace App.Services.AuthApi.Controller
             _response.Message = "Role assigned successfully.";
 
             return Ok(_response);
+        }
+
+        [HttpGet("logout")]
+        public async Task<IActionResult> Logout(){
+            
+            await _authService.Logout();
+            _response.IsSuccess = true;
+            _response.Message = "User looged out successfully";
+
+            return Ok(_response);
+        }
+
+        [Authorize]
+        [HttpPost("release-access")]
+        public async Task<IActionResult> ReleaseAccess(ReleaseData releaseData)
+        {
+            Thread.Sleep(5000);
+            Console.WriteLine("Lock Released Successfully");
+            // Console.WriteLine(Request.Headers.Authorization);
+            //Perform the DB Operation here to release lock
+            
+            return Ok(new { Success = true });
         }
     }
 }

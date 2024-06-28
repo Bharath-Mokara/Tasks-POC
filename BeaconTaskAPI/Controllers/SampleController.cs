@@ -10,6 +10,7 @@ namespace BeaconTaskAPI
         [HttpPost("release-Access")]
         public async Task<IActionResult> ReleaseAccess(ReleaseData releaseData)
         {
+            Thread.Sleep(5000);
             Console.WriteLine("Lock Released Successfully");
             //Perform the DB Operation here to release lock
             

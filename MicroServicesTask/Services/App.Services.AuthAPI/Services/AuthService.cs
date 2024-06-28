@@ -97,6 +97,11 @@ namespace App.Services.AuthApi.Services
             };
         }
 
+        public async Task Logout()
+        {
+            await _signInManager.SignOutAsync();
+        }
+
         public async Task<string> Register(RegistrationRequestDto registrationRequestDto)
         {
             ApplicationUser user = new ()

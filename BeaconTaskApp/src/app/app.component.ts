@@ -1,32 +1,27 @@
-import { Component, HostListener } from '@angular/core';
-import { LockService } from './Services/lock-service.service';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { LockService } from './services/lock-service.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'BeaconTaskApp';
+export class AppComponent implements OnInit{
 
-  userId = 'bharath001'; 
+  constructor() {
 
-  constructor(private lockService: LockService) {}
+  }
 
-  ngOnInit() {
-    // Attach the 'beforeunload' event listener
-    window.addEventListener('beforeunload', this.handleBeforeUnload);
-    
-    this.lockService.sendUserExitData(this.userId);
+  ngOnInit(): void {
+    this.checkLoginStatus();
+  }
+
+  checkLoginStatus(): boolean{
+    return localStorage.getItem("token") !== null;
   }
 
   ngOnDestroy() {
-    // Remove the 'beforeunload' event listener
-    window.removeEventListener('beforeunload', this.handleBeforeUnload);
-  }
-
-  private handleBeforeUnload = (event: Event) => {
-    this.lockService.sendUserExitData(this.userId);
+  
   }
 }
 
