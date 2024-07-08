@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="toolbox">
+      <h3>Toolbox</h3>
+      <div *ngFor="let control of toolboxControls" dndDraggable [dndDraggable]="control" class="draggable">
+        {{ control.label }}
+      </div>
+    </div>
+    <div class="form-area" dndDropzone (dndDrop)="onDrop($event)">
+      <h3>Form Area</h3>
+      <form [formGroup]="myform">
+        <div *ngFor="let control of formControls" class="form-control">
+          <label>{{ control.label }}</label>
+          <ng-container [ngSwitch]="control.type">
+            <input *ngSwitchCase="'textbox'" type="text" [formControlName]="control.key">
+            <textarea *ngSwitchCase="'textarea'" [formControlName]="control.key"></textarea>
+            <select *ngSwitchCase="'dropdown'" [formControlName]="control.key">
+              <option *ngFor="let option of control.options" [value]="option.value">{{ option.label }}</option>
+            </select>
+          </ng-container>
+        </div>
+      </form>
+    </div>
+  </div>
+  

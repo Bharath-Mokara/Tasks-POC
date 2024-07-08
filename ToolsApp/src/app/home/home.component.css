@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.toolbox, .form-area {
+  width: 45%;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.draggable {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  cursor: move;
+}
+
+.form-area {
+  min-height: 300px;
+  padding: 10px;
+  border: 2px dashed #ccc;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}

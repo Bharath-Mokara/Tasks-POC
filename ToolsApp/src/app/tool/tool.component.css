@@ -1,0 +1,50 @@
+
+
+/* left section */
+
+#left-section
+{
+    background-color: #ebebf0e9;
+    min-height: 100vh;
+    padding: 1rem 2.3rem;
+    border-top: 2px solid #333;
+}
+
+.title
+{
+    outline:none;
+    border:none;
+    border-bottom: 1px solid black;
+    width:80%;
+    height:25px;
+    background: transparent;
+    color:#edeaea93;
+    font-style: italic;
+    display: inline-block;
+    cursor: text;
+    color: black;
+}
+
+#canvas-section
+{
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 2px #eceaeac6;
+    outline: none;
+    height:90%;
+    margin: auto;
+}
+
+
+/* Right section */
+#right-section
+{
+    min-height: 100vh;
+    padding: 1rem 2.3rem;
+    border-top: 2px solid #333;
+}
+
+#right-section h5
+{
+    border-bottom: 2px solid black;
+    padding-bottom:0.5rem;
+}

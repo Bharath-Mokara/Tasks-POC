@@ -1,0 +1,97 @@
+<div class="container-fluid row p-2">
+    <h5 class="col-9 pt-3" style="padding-left: 2.5rem;">Paragraph Builder</h5>
+    <div class="col-3 pt-3">
+        <button (click) = "showPreview()" class="btn btn-outline-success" style="margin-left:3rem; margin-right:2rem"><span><i class="bi bi-eye" style="margin-right:0.3rem"></i></span>Preview</button>
+        <button  class="btn btn-primary">Publish</button>
+    </div>
+
+</div>
+
+<div class="container-fluid row">
+    <section id="left-section" class="col-9">
+        <i class="bi bi-c-square-fill" style="font-size: 1.3rem; margin-right:1rem"></i><input type="text" placeholder="Insert title here" [(ngModel)]="title" class="title mt-3 mb-4 pb-2">
+        <div contenteditable="true" dndDropzone (dndDrop)="onDrop($event,dropTools)" id="canvas-section"
+         class="col-12 p-3 lh-10">
+            
+        </div>
+
+        <!-- Options Modal -->
+        <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Add Options</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-3 lh-10">
+            
+                <input type="text" class="form-control mb-3" placeholder="Option" #optionInput>
+           
+                <button type="button" class="btn btn-dark" (click)="addOption(optionInput)">Add Option</button>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Table Modal -->
+        <div id="tableModal" class="modal fade" tabindex="-1" aria-labelledby="tableModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="tableModalLabel">Add Options</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-3 lh-10">
+            
+                <input type="text" class="form-control mb-3" placeholder="enter no of rows" #rowsInput>
+                <input type="text" class="form-control mb-3" placeholder="enter no of columns" #colsInput>
+           
+                <button type="button" class="btn btn-outline-success" (click)="generateTable(rowsInput,colsInput)">Generate</button>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Preview Modal -->
+        <div id="previewModal" class="modal fade" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="previewModalLabel" *ngIf="!title">Template Preview</h5>
+                <h5 class="modal-title" id="previewModalLabel" *ngIf="title">{{title}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="previewModalBody">
+            
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </section>
+    
+    <section id="right-section" class="col-3 vh-100" >
+    
+        <h5>Elements</h5>
+        <div class="row pt-3">
+            <div class="tools col-4" *ngFor="let tool of dragTools">
+                <div [dndDraggable]="tool" [dndEffectAllowed]="'move'">
+                    <i [ngClass]="tool.icon" class="bi"></i>
+                    <p>{{tool.label}}</p>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+</div>
