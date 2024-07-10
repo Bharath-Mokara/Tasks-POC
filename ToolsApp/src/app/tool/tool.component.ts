@@ -1,7 +1,9 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DndDropEvent, DropEffect } from 'ngx-drag-drop';
 import { Tool } from '../models/tool';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TemplateService } from '../Services/template.service';
+import { Template } from '../models/template';
 declare var bootstrap: any;
 
 
@@ -10,7 +12,7 @@ declare var bootstrap: any;
   templateUrl: './tool.component.html',
   styleUrls: ['./tool.component.css']
 })
-export class ToolComponent {
+export class ToolComponent implements OnInit{
 
   title: string = "";
 
@@ -59,8 +61,19 @@ export class ToolComponent {
   templateContent!: HTMLElement;
 
   
-  constructor(private router:Router) {
+  constructor(private route:ActivatedRoute, private templateService: TemplateService) {
     
+  }
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      let canvasSection = document.getElementById('canvas-section');
+      if(canvasSection && params['content']){
+        canvasSection.innerHTML = params['content'];
+        this.title = params['name'];
+      }
+    });
+
   }
 
 
@@ -104,7 +117,8 @@ export class ToolComponent {
 
   }
 
-  handleModalHidden(range:any) {
+  //Hiding the modal to prevent the execution 
+  handleModalHidden(range?:any) {
     if (this.pendingEvent) {
         const list = this.pendingList || undefined;
         this.processDrop(this.pendingEvent,range, list);
@@ -222,11 +236,29 @@ export class ToolComponent {
     }
   }
 
+  //Previewing the template that was rendered.
+
   showPreview()
   {
     const canvasSection = document.getElementById('canvas-section');
     canvasSection?.removeAttribute("contenteditable");
     this.templateContent = canvasSection as HTMLElement;
+
+    // var extractedValues = this.extractContentValues(this.templateContent);
+    // console.log(extractedValues);
+    // let templateAfterValueRemoval = this.removeContentValues(this.templateContent.outerHTML,extractedValues);
+    // console.log(templateAfterValueRemoval);
+    // console.log("-------------------------------------------------");
+    // let finalTemplateContent = this.updateContentValues(templateAfterValueRemoval,extractedValues);
+
+    // console.log(finalTemplateContent);
+
+    // if(canvasSection)
+    // {
+    //   canvasSection.innerHTML = "";
+    //   canvasSection.innerHTML = finalTemplateContent;
+    // }
+
 
     // Display a modal popup to preview the template
     const modalElement = document.getElementById('previewModal');
@@ -241,40 +273,66 @@ export class ToolComponent {
       previewModalBody.appendChild(this.templateContent.cloneNode(true) as HTMLElement);
     }
 
+    if(canvasSection !== null)
+    {
+      // Handle the modal hidden event
+      modalElement?.addEventListener('hidden.bs.modal', this.handlePreviewModalHidden.bind(this,canvasSection), { once: true });
+    }
+    
+  }
+
+  handlePreviewModalHidden(canvasSection:HTMLElement)
+  {
     canvasSection?.setAttribute("contenteditable",'true');
   }
 
 
-  //Elements creation
+  //Tools creation
+
   createTextBox() : any
   {
+    const textBoxCount = this.dropTools.filter(el => el.type === 'textbox').length + 1;
     const textBoxNode = document.createElement('input');
     textBoxNode.setAttribute('type', 'text');
     textBoxNode.setAttribute('placeholder', 'Textbox');
+    textBoxNode.setAttribute('id', `textbox-${textBoxCount}`);
+    textBoxNode.setAttribute('name', `textbox-${textBoxCount}`);
+    this.dropTools.push({ id: `textbox-${textBoxCount}`, type: 'textbox' });
     return textBoxNode;
   }
 
   createTextarea() : any
   {
+    const textAreaCount = this.dropTools.filter(el => el.type === 'textarea').length + 1;
     const textAreaNode = document.createElement('textarea');
     textAreaNode.setAttribute('placeholder', 'Textarea');
+    textAreaNode.setAttribute('id', `textarea-${textAreaCount}`);
+    textAreaNode.setAttribute('name', `textarea-${textAreaCount}`);
+    this.dropTools.push({ id: `textarea-${textAreaCount}`, type: 'textarea' });
     return textAreaNode;;
   }
 
   createDatePicker() : any
   {
+    const datePickerCount = this.dropTools.filter(el => el.type === 'datepicker').length + 1;
     const datePickerNode = document.createElement('input');
     datePickerNode.setAttribute('type', 'date');
     datePickerNode.setAttribute('placeholder', 'dd/MM/yyyy');
+    datePickerNode.setAttribute('id', `datepicker-${datePickerCount}`);
+    datePickerNode.setAttribute('name', `datepicker-${datePickerCount}`);
+    this.dropTools.push({ id: `datepicker-${datePickerCount}`, type: 'datepicker' });
     return datePickerNode;
   }
 
 
   createDropdown() : any
   {
+    const dropDownCount = this.dropTools.filter(el => el.type === 'dropdown').length + 1;
     const dropDownNode = document.createElement('select');
     const defaultOption = document.createElement('option');
     defaultOption.setAttribute('value', 'Default');
+    dropDownNode.setAttribute('id', `dropdown-${dropDownCount}`);
+    dropDownNode.setAttribute('name', `dropdown-${dropDownCount}`);
     defaultOption.textContent = 'select item';
     dropDownNode.appendChild(defaultOption);
 
@@ -284,6 +342,8 @@ export class ToolComponent {
       optionElement.textContent = option;
       dropDownNode.appendChild(optionElement);
     });
+
+    this.dropTools.push({ id: `dropdown-${dropDownCount}`, type: 'dropdown' });
 
     return dropDownNode;
   }
@@ -323,6 +383,102 @@ export class ToolComponent {
   {
     const horizontalNode = document.createElement('hr');
     return horizontalNode;
+  }
+
+
+  // Extracting the elements values 
+
+  extractContentValues(container: HTMLElement): { [key: string]: any } {
+    const values: { [key: string]: any } = {};
+    const inputs = container.querySelectorAll('input, select, textarea');
+
+    inputs.forEach(input => {
+      if (input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement || input instanceof HTMLSelectElement) {
+        values[input.name] = input.value;
+      }
+    });
+
+    return values;
+  }
+
+  //Updating the extracted values to corresponding HTML elements to store final HTML in DB with user entered values.
+
+  updateContentValues(htmlString: string, values: { [key: string]: any }) : string{
+    const container = document.createElement('div');
+    container.innerHTML = htmlString;
+
+    for (const name in values) {
+      const value = values[name];
+      const input = container.querySelector(`[name="${name}"]`);
+
+      if (input instanceof HTMLInputElement){
+        input.setAttribute("value",value);
+      } 
+      else if(input instanceof HTMLTextAreaElement)
+      {
+        input.innerText = value;
+      }
+      else if (input instanceof HTMLSelectElement) {
+        Array.from(input.options).forEach(option => {
+          if (option.value === value) {
+            option.setAttribute("selected","true");
+          }
+        });
+      }
+    }
+
+    return container.innerHTML;
+  }
+
+  removeContentValues(htmlString: string, values: { [key: string]: any }) : string{
+    const container = document.createElement('div');
+    container.innerHTML = htmlString;
+
+    for (const name in values) {
+      const value = values[name];
+      const input = container.querySelector(`[name="${name}"]`);
+
+      if (input instanceof HTMLInputElement){
+        input.removeAttribute("value");
+      } 
+      else if(input instanceof HTMLTextAreaElement)
+      {
+        input.innerText = value;
+      }
+      else if (input instanceof HTMLSelectElement) {
+        Array.from(input.options).forEach(option => {
+          option.removeAttribute("Selected");
+        });
+      }
+    }
+
+    return container.innerHTML;
+  }
+
+  //Saving the final HTML with values into database
+
+  PublishTemplate()
+  {
+    const canvasSection = document.getElementById('canvas-section');
+    this.templateContent = canvasSection as HTMLElement;
+    console.log(this.templateContent.innerHTML);
+    
+    var extractedValues = this.extractContentValues(this.templateContent);
+    console.log(extractedValues);
+    let finalTemplateContent = this.updateContentValues(this.templateContent.outerHTML,extractedValues);
+
+
+    const template = new Template(this.title, finalTemplateContent);
+
+    this.templateService.addTemplate(template).subscribe({
+      next:(response:Response)=>{
+        console.log(response);
+        if(canvasSection)
+        {
+          canvasSection.innerHTML = "";
+        }
+      }
+    });
   }
   
 

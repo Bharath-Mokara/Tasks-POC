@@ -1,0 +1,31 @@
+<div class="container-fluid row p-2" style="border-bottom:1.5px solid black;">
+    <h5 class="col-10 pt-3" style="padding-left: 2.5rem;">Dashboard</h5>
+    <div class="col-2 pt-3">
+        <button  class="btn btn-warning" (click)="CreateTemplate()"><span style="margin-right:0.2rem"><i class="bi bi-plus-circle"></i></span> Create</button>
+    </div>
+
+</div>
+
+<div class="container-fluid row">
+    <div class="col-8 border m-auto mt-3">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Template Name</th>
+                <th scope="col">View</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let template of templates;let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{template.name}}</td>
+                <td><button class="btn btn-dark" (click)="viewTemplate(template.content,template.name)">View</button></td>
+                <td><button class="btn btn-outline-danger" (click)="deleteTemplate(template.id)"><i class="bi bi-trash3"></i></button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

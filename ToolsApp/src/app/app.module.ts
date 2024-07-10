@@ -6,22 +6,24 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DndModule } from 'ngx-drag-drop';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SampleComponent } from './sample/sample.component';
 import { ToolComponent } from './tool/tool.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SampleComponent,
     ToolComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DndModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
